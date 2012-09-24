@@ -1,0 +1,22 @@
+{
+  "id": "vagrant-server",
+  "name": "vagrant-server",
+  "chef_environment": "_default",
+  "json_class": "Chef::Node",
+  "automatic": {
+    "hostname": "vagrant-server",
+    "os": "linux",
+    "ipaddress": "192.168.33.11",
+    "fqdn": "192.168.33.11"
+  },
+  "normal": {
+  },
+  "chef_type": "node",
+  "default": {
+  },
+  "override": {
+  },
+  "run_list": [
+    "role[server]","role[monitoring]","role[logstash_server]","role[collectd_server]","role[graphite_server]"
+  ]
+}

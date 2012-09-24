@@ -1,0 +1,5 @@
+{
+  "id": "ssh2",
+  "hostgroup_name": "all",
+  "command_line": "$USER1$/check_ssh $HOSTADDRESS$"
+}

@@ -1,0 +1,10 @@
+#this uses rvm
+rvm use 1.9.2
+rvm_gemset_create_on_use_flag=1
+rvm gemset use vagrant-opsbox
+alias rake="bundle exec rake"
+alias vagrant="bundle exec vagrant"
+alias veewee="bundle exec veewee"
+alias guard="bundle exec guard"
+alias mccloud="bundle exec mccloud"
+alias knife="bundle exec knife"

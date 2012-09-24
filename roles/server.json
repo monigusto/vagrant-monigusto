@@ -1,0 +1,108 @@
+{
+  "name": "server",
+  "default_attributes": {
+    "nginx": {
+      "default_site_enabled": false
+    },
+    "tasseo": {
+      "graphite_url": "127.0.0.1",
+      "graphite_auth": "root:change_me",
+      "graphite_web_protocol": "http",
+      "url": "localhost",
+      "nginx": {
+        "port": 8084
+      }
+    },
+    "jmxtrans": {
+      "servers" : [
+        {
+        "name": "localhost",
+        "port": 1105,
+        "type": "jvm"
+      }
+      ] ,
+      "graphite": {
+        "host": "localhost"
+      }
+    },
+    "nagios": {
+      "server_auth_method" : "htauth" ,
+      "http_port" : 8080
+    },
+    "graphite": {
+      "graphite_web": {
+        "http_port" : 8081,
+        "additional_vhost_config" : "Header set Access-Control-Allow-Origin '*' \n\t\tHeader set Access-Control-Allow-Methods 'GET, OPTIONS' \n\t\tHeader set Access-Control-Allow-Headers 'origin, authorization, accept'"
+      }
+    },
+    "statsd": {
+      "graphite_port": 2003,
+      "graphite_host": "127.0.0.1"
+    },
+    "collectd": {
+      "collectd_web": {
+        "http_port" : 8082
+      },
+      "server_ip": "127.0.0.1"
+    },
+    "logstash": {
+      "kibana": {
+        "http_port" : 8083
+      },
+      "agent": {
+        "inputs": {} ,
+        "outputs": {},
+        "server_ipaddress": "192.168.33.11",
+        "ipv4_only": true
+      },
+      "server": {
+        "java_opts": "-Dcom.sun.management.jmxremote.port=1105 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false",
+        "ipv4_only": true,
+        "install_rabbitmq": false,
+        "inputs2": [
+          { "syslog": {
+          "type" : "syslog",
+          "port" : 4000
+          }
+        },
+        {
+          "gelf": {
+            "type" : "gelf"
+          }
+        }
+        ],
+        "enable_embedded_es": true
+      },
+      "graphite_ip": "127.0.0.1",
+      "elasticsearch_ip": "192.168.33.11",
+      "elacsticsearch_cluster": "elasticsearch"
+    },
+    "apache": {
+      "listen_ports" : [ 80 , 443, 8080 , 8081, 8082 , 8083]
+    }
+  },
+  "override_attributes": {
+  },
+  "json_class": "Chef::Role",
+  "description": "This is a generic server role, no big deal.",
+  "run_list": [
+    "role[logstash_server]",
+    "recipe[logstash::agent]",
+    "recipe[logstash::server]",
+    "recipe[logstash::kibana]",
+    "recipe[collectd::server]",
+    "recipe[collectd::collectd_web]",
+    "recipe[vagrant_server::collectd]",
+    "recipe[graphite]",
+    "recipe[statsd]",
+    "recipe[jmxtrans]",
+    "recipe[tasseo]",
+    "recipe[tasseo::web]",
+    "recipe[vagrant_server::tasseo]"
+  ],
+  "chef_type": "role",
+  "_run_list": [
+    "role[monitoring]",
+    "recipe[nagios::server]"
+  ]
+}
