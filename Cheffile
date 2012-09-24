@@ -28,7 +28,8 @@ cookbook 'statsd',
    :ref => 'statsd'
 
 cookbook 'tasseo',
-   :git =>  'git@github.com:jedi4ever/chef-tasseo.git'
+   :git =>  'git@github.com:jedi4ever/chef-tasseo.git',
+   :ref => 'extra_configuration_options'
 
 cookbook 'solo-search',
    :git =>  'git@github.com:jedi4ever/chef-solo-search.git',
