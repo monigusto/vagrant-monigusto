@@ -18,32 +18,19 @@ __Work in progress - not fully configurable yet__
 
 ## Install necessary cookbooks
 
-    rake monigusto:install
-
-## Get a basebox
-### Use the prebuild image (TODO)
-We will provide a pre-downloadable box file soon, so you can skip this part
-
-### Build it with veewee
-
-    bundle exec vagrant basebox build ubuntu-12.04
-    bundle exec vagrant basebox export ubuntu-12.04
-    bundle exec vagrant add ubuntu-12.04 ubunty-12.04.box
-
-## Install the necessary cookbooks
-    bundle exec librarian-chef install --path monigusto-cookbooks
+    bundle exec rake monigusto:install
 
 ## Spinup a client and server
     bundle exec vagrant up server
     bundle exec vagrant up client
 
-## Customize the box
+## Customize the configuration
 
 Files that might need customization:
 
 - Vagrantfile
-- nodes/\**\*json
-- roles/\**\*.json
+- nodes/\*\.json
+- roles/\*\.json
 
 ### Network configuration
 This currently assumes the following:
@@ -62,6 +49,16 @@ This currently assumes the following:
 - statsd: 8086
 - jmx: 8087
 - elasticsearch: 8088
+
+## Customize a basebox
+### Use the prebuild image (TODO)
+We will provide a pre-downloadable box file soon, so you can skip this part
+
+### Build it with veewee
+
+    bundle exec vagrant basebox build ubuntu-12.04
+    bundle exec vagrant basebox export ubuntu-12.04
+    bundle exec vagrant add ubuntu-12.04 ubunty-12.04.box
 
 # Technology used
 We use chef to set it up and have have use the following cookbooks:
