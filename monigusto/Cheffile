@@ -57,5 +57,5 @@ cookbook 'collectd-elasticsearch',
 cookbook 'nagios-check-graphite',
    :git =>  'git@github.com:monigusto/chef-nagios-check-graphite.git'
 
-#cookbook 'monigusto',
-   #:git =>  'git@github.com:monigusto/chef-monigusto.git'
+cookbook 'monigusto',
+   :git =>  'git@github.com:monigusto/chef-monigusto.git'
