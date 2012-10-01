@@ -6,75 +6,12 @@
       "password": "pingdompassword",
       "api_key": "pingdowapikey"
     },
-    "nginx": {
-      "default_site_enabled": false
-    },
-    "snmp": {
-      "full_systemview":true
-    },
-    "ntp": {
-      "servers": ["0.pool.ntp.org","1.pool.ntp.org" ],
-      "is_server": true
-    },
     "postfix": {
       "myhostname": "monitoring",
       "mydomain": "jedi.be",
       "aliases": {
         "root": "patrick.debois@jedi.be"
       }
-    },
-    "chef_client": {
-      "handler": {
-        "graphite": {
-          "host": "localhost",
-          "port": 2003
-        }
-      }
-    },
-    "tasseo": {
-      "graphite_url": "127.0.0.1",
-      "graphite_auth": "root:change_me",
-      "graphite_web_protocol": "http",
-      "home_dir": "/opt/tasseo",
-      "url": "localhost",
-      "nginx": {
-        "port": 8084
-      }
-    },
-    "jmxtrans": {
-      "servers" : [
-        {
-        "name": "localhost",
-        "port": 1105,
-        "type": "jvm"
-      }
-      ] ,
-      "graphite": {
-        "host": "localhost"
-      }
-    },
-    "nagios": {
-      "server_auth_method" : "htauth" ,
-      "http_port" : 8080,
-      "pagerduty_key" : "put it here",
-      "notifications_enabled" : 1,
-      "server_role": "monigusto_server"
-    },
-    "graphite": {
-      "graphite_web": {
-        "http_port" : 8081,
-        "additional_vhost_config" : "Header set Access-Control-Allow-Origin '*' \n\t\tHeader set Access-Control-Allow-Methods 'GET, OPTIONS' \n\t\tHeader set Access-Control-Allow-Headers 'origin, authorization, accept'"
-      }
-    },
-    "statsd": {
-      "graphite_port": 2003,
-      "graphite_host": "127.0.0.1"
-    },
-    "collectd": {
-      "collectd_web": {
-        "http_port" : 8082
-      },
-      "server_ip": "127.0.0.1"
     },
     "logstash": {
       "kibana": {
@@ -91,61 +28,19 @@
         "java_opts": "-Dcom.sun.management.jmxremote.port=1105 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false",
         "ipv4_only": true,
         "install_rabbitmq": false,
-        "inputs2": [
-          { "syslog": {
-          "type" : "syslog",
-          "port" : 4000
-          }
-        },
-        {
-          "gelf": {
-            "type" : "gelf"
-          }
-        }
-        ],
         "enable_embedded_es": true
       },
       "graphite_ip": "127.0.0.1",
       "elasticsearch_ip": "192.168.33.11",
       "elacsticsearch_cluster": "elasticsearch"
-    },
-    "apache": {
-      "listen_ports" : [ 80 , 443, 8080 , 8081, 8082 , 8083]
     }
   },
   "override_attributes": {
   },
   "json_class": "Chef::Role",
   "description": "This is role for a monigusto server",
-  "run_list": [
-    "recipe[graphite_handler]",
-    "recipe[apt]",
-    "recipe[ark]",
-    "recipe[monigusto::server_graphite]",
-    "recipe[graphite]",
-    "recipe[logstash::agent]",
-    "recipe[logstash::server]",
-    "recipe[logstash::kibana]",
-    "recipe[logstash_handler]",
-    "recipe[snmp]",
-    "recipe[collectd::server]",
-    "recipe[collectd::collectd_web]",
-    "recipe[monigusto::server_collectd]",
-    "recipe[statsd]",
-    "recipe[jmxtrans]",
-    "recipe[tasseo]",
-    "recipe[tasseo::web]",
-    "recipe[nagios::server]",
-    "recipe[nagios::pagerduty]",
-    "recipe[nagios::client]",
-    "recipe[collectd-carbon]",
-    "recipe[postfix]",
-    "recipe[nagios-check-graphite]",
-    "recipe[collectd-elasticsearch]",
-    "recipe[ntp]"
-  ],
-  "chef_type": "role",
-  "_run_list": [
-    "recipe[monigusto::server::pingdom]"
-  ]
+    "run_list": [
+      "recipe[monigusto::server]"
+    ],
+    "chef_type": "role"
 }

@@ -7,9 +7,9 @@ namespace :monigusto do
   end
 
   desc "Update monigusto cookbooks"
-  task :install do
+  task :update do
     puts "Updating monigusto cookbooks in #{File.join(File.dirname(__FILE__),'monigusto')}"
-    `cd "#{File.join(File.expand_path(File.dirname(__FILE__)),'monigusto')}" && librarian-chef update`
+    `cd "#{File.join(File.expand_path(File.dirname(__FILE__)),'monigusto')}" && librarian-chef clean && librarian-chef update`
   end
 
 end

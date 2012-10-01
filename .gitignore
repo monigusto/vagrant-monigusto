@@ -16,3 +16,4 @@ virtualfloppy.vfd
 test/*
 monigusto/cookbooks/*
 monigusto/Cheffile.lock
+monigusto/tmp

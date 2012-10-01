@@ -20,6 +20,9 @@ __Work in progress - not fully configurable yet__
 
     bundle exec rake monigusto:install
 
+This will install the cookbooks required for monigusto in monigusto/cookbooks.
+You can use your own cookbooks in `site-cookbooks` or `cookbooks`
+
 ## Spinup a client and server
     bundle exec vagrant up server
     bundle exec vagrant up client
@@ -49,6 +52,10 @@ This currently assumes the following:
 - statsd: 8086
 - jmx: 8087
 - elasticsearch: 8088
+
+## Update monigusto
+
+    bundle exec rake monigusto:install
 
 ## Customize a basebox
 ### Use the prebuild image (TODO)

@@ -17,6 +17,6 @@
   "override": {
   },
   "run_list": [
-    "role[monigusto_server]
+    "role[monigusto_server]"
   ]
 }
