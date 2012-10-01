@@ -3,31 +3,6 @@
 
 Vagrant::Config.run do |config|
 
-
-  config.vm.define :client do |client_config|
-    # Every Vagrant virtual environment requires a box to build off of.
-    client_config.vm.box = "ubuntu-12.04"
-
-    # Add a little more memory to allow for internal hosts
-    client_config.vm.customize ["modifyvm", :id, "--memory", 1024]
-
-    client_config.vm.network :hostonly, "192.168.33.10"
-    client_config.vm.host_name = "vagrant-client.vm"
-
-    # client_config.vm.network :bridged
-
-    # client_config.vm.forward_port 80, 8080
-
-    # client_config.vm.share_folder "v-data", "/vagrant_data", "../data"
-
-    client_config.vm.provision :chef_solo do |chef|
-      chef.cookbooks_path = [ "cookbooks" , "site-cookbooks"]
-      chef.roles_path = "roles"
-      chef.data_bags_path = "data_bags"
-      chef.add_role "client"
-    end
-  end
-
   config.vm.define :server do |server_config|
     # Every Vagrant virtual environment requires a box to build off of.
     server_config.vm.box = "ubuntu-12.04"
@@ -56,7 +31,7 @@ Vagrant::Config.run do |config|
     # JMX
     server_config.vm.forward_port 1105, 8087
     # ES
-    server_config.vm.forward_port 9300, 8088
+    server_config.vm.forward_port 9200, 8088
 
     # We need to increase timeout due to the forward ports default = 10
     server_config.ssh.timeout = 1000
@@ -65,10 +40,35 @@ Vagrant::Config.run do |config|
     # server_config.vm.share_folder "v-data", "/vagrant_data", "../data"
 
     server_config.vm.provision :chef_solo do |chef|
-      chef.cookbooks_path = [ "cookbooks" , "site-cookbooks"]
+      chef.cookbooks_path = [ "cookbooks" , "monigusto/cookbooks","site-cookbooks"]
       chef.roles_path = "roles"
       chef.data_bags_path = "data_bags"
-      chef.add_role "server"
+      chef.add_role "monigusto_server"
+    end
+  end
+
+  config.vm.define :client do |client_config|
+    # Every Vagrant virtual environment requires a box to build off of.
+    client_config.vm.box = "ubuntu-12.04"
+
+    # Add a little more memory to allow for internal hosts
+    client_config.vm.customize ["modifyvm", :id, "--memory", 1024]
+
+    client_config.vm.network :hostonly, "192.168.33.10"
+    client_config.vm.host_name = "vagrant-client.vm"
+
+    # client_config.vm.network :bridged
+
+    # client_config.vm.forward_port 80, 8080
+
+    # client_config.vm.share_folder "v-data", "/vagrant_data", "../data"
+
+    client_config.vm.provision :chef_solo do |chef|
+      chef.cookbooks_path = [ "cookbooks" , "monigusto/cookbooks","site-cookbooks"]
+      chef.roles_path = "roles"
+      chef.log_level = :debug
+      chef.data_bags_path = "data_bags"
+      chef.add_role "monigusto_client"
     end
   end
 

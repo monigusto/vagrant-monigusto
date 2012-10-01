@@ -1,0 +1,19 @@
+description "NGINX PHP Wrapper Dispatcher"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+respawn
+respawn limit 5 30
+
+env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+pre-start script
+  mkdir -p <%= @dispatch_dir %>
+  chown <%= @nginx_user %>:<%= @nginx_group %> <%= @dispatch_dir %>
+end script
+
+exec /usr/bin/spawn-fcgi -s <%= File.join(@dispatch_dir, 'phpwrap_dispatcher.sock') %> \
+  -P <%= File.join(@dispatch_dir, 'phpwrap_dispatcher.pid') %> \
+  -C <%= @dispatch_procs.to_i %> -u <%= @nginx_user %> \
+  -g <%= @nginx_group %> -f <%= @php_cgi_bin %> -n

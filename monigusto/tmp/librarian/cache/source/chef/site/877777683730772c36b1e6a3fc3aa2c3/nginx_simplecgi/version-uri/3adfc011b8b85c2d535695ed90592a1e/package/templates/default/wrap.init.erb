@@ -1,0 +1,67 @@
+#!/bin/sh
+#
+# chkconfig:   - 57 47
+# <%= @kind %>wrap_dispatcher
+#
+# description: wrap_dispatcher
+# processname:  <%= @kind %>wrap_dispatcher
+#
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+
+exec=<%= @exec %>
+prog=$(basename $exec)
+
+lockfile=/var/lock/subsys/<%= @kind %>wrap_dispatcher
+
+start() {
+    [ -x $exec ] || exit 5
+    echo -n $"Starting $prog: "
+    # if not running, start it up here, usually something like "daemon $exec"
+    $exec
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && touch $lockfile
+	return $retval
+}
+
+stop() {
+  echo -n $"Stopping $prog: "
+  kill `cat <%= @pid_file %>`
+	retval=$?
+	echo
+	[ $retval -eq 0 ] && rm -f $lockfile
+	return $retval
+}
+
+restart() {
+    stop
+    start
+}
+
+
+# See how we were called.
+case "$1" in 
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  status)
+    status -p <%= @pid_file %> <%= @kind %>wrap_dispatcher
+        ;;
+  restart)
+        restart
+        ;;
+  condrestart)
+        [ -f $lockfile ] && restart || :
+        ;;
+  *)
+        echo $"Usage: $0 {start|stop|status|restart|condrestart}"
+        exit 1 
+esac
+
+exit $?

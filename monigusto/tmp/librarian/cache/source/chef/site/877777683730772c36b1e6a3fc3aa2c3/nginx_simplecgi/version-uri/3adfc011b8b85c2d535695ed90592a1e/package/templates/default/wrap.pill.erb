@@ -1,0 +1,12 @@
+Bluepill.application("<%= @pill_name %>", :log_file => "<%= File.join(@log_dir, "bluepill_#{@pill_name}.log") %>") do |app|
+  app.process("<%= @pill_name %>") do |process|
+    process.pid_file = "<%= @pid_file %>"
+    process.working_dir = "<%= @working_dir %>"
+    process.start_command = "<%= @exec %>"
+    process.daemonize = true
+
+    process.monitor_children do |child_process|
+      child_process.stop_command = "kill -QUIT {{PID}}"
+    end
+  end
+end

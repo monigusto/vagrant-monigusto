@@ -34,7 +34,7 @@ gem "test-kitchen"
 
 # Mccloud 
 #gem "mccloud" , :git => 'git://github.com/jedi4ever/mccloud.git',:branch => "libvirt"
-gem "mccloud" , :path => '/Users/patrick/dev/mccloud'
+#gem "mccloud" , :path => '/Users/patrick/dev/mccloud'
 gem "veewee" , :path => '/Users/patrick/dev/veewee'
 
 # Guard gem itself

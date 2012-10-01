@@ -1,0 +1,5 @@
+{
+  "id": "apache",
+  "hostgroup_name": "all",
+  "command_line": "$USER1$/check_http -w 1 -c 10 -H localhost -p 8081 -s Copyright"
+}

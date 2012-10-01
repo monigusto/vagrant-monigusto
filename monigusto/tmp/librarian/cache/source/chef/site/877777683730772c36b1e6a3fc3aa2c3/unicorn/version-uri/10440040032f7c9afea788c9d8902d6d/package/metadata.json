@@ -1,0 +1,30 @@
+{
+  "name": "unicorn",
+  "description": "Installs/Configures unicorn",
+  "long_description": "Description\n===========\n\nInstalls and configures unicorn, and provides a definition to manage\nconfiguration file for Rack apps running under unicorn.\n\nRequirements\n============\n\nShould work anywhere.\n\nDefinitions\n===========\n\nunicorn\\_config\n---------------\n\nThe unicorn\\_config definition manages the configuration template for\nan application running under unicorn.\n\n### Parameters:\n\n* `listen` - Default is nil.\n* `working_directory` - Default is nil.\n* `worker_timeout` - Default is 60.\n* `preload_app` - Default is false.\n* `worker_processes` - Number of worker processes to spawn. Default is\n  4.\n* `before_exec` - Default is nil.\n* `before_fork` - Default is nil.\n* `after_fork` - Default is nil.\n* `pid` - Pidfile location. Default is nil.\n* `stderr_path` - Where stderr gets logged. Default is nil.\n* `stdout_path` - Where stdout gets logged. Default is nil.\n* `notifies` - How to notify another service if specified. Default is nil.\n* `owner` - Owner of the template. Default is nil.\n* `group` - group of the template. Default is nil.\n* `mode` - mode of the template. Default is nil.\n\n\n### Examples:\n\nSetting some custom attributes in a recipe (this is from Opscode's `application::unicorn`.\n\n    node.default[:unicorn][:worker_timeout] = 60\n    node.default[:unicorn][:preload_app] = false\n    node.default[:unicorn][:worker_processes] = [node[:cpu][:total].to_i * 4, 8].min\n    node.default[:unicorn][:preload_app] = false\n    node.default[:unicorn][:before_fork] = 'sleep 1'\n    node.default[:unicorn][:port] = '8080'\n    node.set[:unicorn][:options] = { :tcp_nodelay => true, :backlog => 100 }\n\n    unicorn_config \"/etc/unicorn/#{app['id']}.rb\" do\n      listen({ node[:unicorn][:port] => node[:unicorn][:options] })\n      working_directory ::File.join(app['deploy_to'], 'current')\n      worker_timeout node[:unicorn][:worker_timeout]\n      preload_app node[:unicorn][:preload_app]\n      worker_processes node[:unicorn][:worker_processes]\n      before_fork node[:unicorn][:before_fork]\n    end\n\nLicense and Author\n==================\n\nAuthor:: Adam Jacob <adam@opscode.com>\n\nCopyright 2009-2010, Opscode, Inc.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+  "maintainer": "Opscode, Inc",
+  "maintainer_email": "cookbooks@opscode.com",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "unicorn": "Installs unicorn rubygem"
+  },
+  "version": "1.1.0"
+}

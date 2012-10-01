@@ -1,0 +1,17 @@
+description "NGINX SimpleCGI Wrapper Dispatcher"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+expect fork
+respawn
+respawn limit 5 30
+
+env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+pre-start script
+  mkdir -p <%= @dispatch_dir %>
+  chown <%= @nginx_user %>:<%= @nginx_group %> <%= @dispatch_dir %>
+end script
+
+exec sudo -u <%= @nginx_user %> /usr/local/bin/cgiwrap_dispatcher

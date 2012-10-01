@@ -1,6 +1,6 @@
 {
   "id": "vagrant-server",
-  "name": "vagrant-server",
+  "name": "vagrant-server.vm",
   "chef_environment": "_default",
   "json_class": "Chef::Node",
   "automatic": {
@@ -17,6 +17,6 @@
   "override": {
   },
   "run_list": [
-    "role[server]","role[monitoring]","role[logstash_server]","role[collectd_server]","role[graphite_server]"
+    "role[monigusto_server]
   ]
 }

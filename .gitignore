@@ -6,7 +6,6 @@ iso/*
 iso
 *.ova
 tmp/*
-cookbooks/*
 manifests/*
 boxes/*
 pkg/*
@@ -15,3 +14,5 @@ pkg/*
 virtualfloppy.vfd
 *.swp
 test/*
+monigusto/cookbooks/*
+monigusto/Cheffile.lock

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+FASTCGI_USER=<%= @nginx_user %>
+FASTCGI_GROUP=<%= @nginx_group %>
+SOCKET=<%= File.join(@dispatch_dir, 'phpwrap-dispatch.sock') %>
+PIDFILE=<%= File.join(@dispatch_dir, 'phpwrap_dispatcher.pid') %>
+CHILDREN=<%= @dispatch_procs.to_i %>
+PHP5=<%= @php_cgi_bin %>
+
+/usr/bin/spawn-fcgi -s $SOCKET -P $PIDFILE -C $CHILDREN -u $FASTCGI_USER -g $FASTCGI_GROUP -f $PHP5

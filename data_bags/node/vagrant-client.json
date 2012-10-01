@@ -1,6 +1,6 @@
 {
   "id": "vagrant-client",
-  "name": "vagrant-client",
+  "name": "vagrant-client.vm",
   "chef_environment": "_default",
   "json_class": "Chef::Node",
   "automatic": {
@@ -16,6 +16,6 @@
   "override": {
   },
   "run_list": [
-    "role[client]"
+    "role[monigusto_client]"
   ]
 }

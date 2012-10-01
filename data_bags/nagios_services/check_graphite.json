@@ -1,0 +1,5 @@
+{
+  "id": "graphite-cpu-usage3",
+  "hostgroup_name": "all",
+  "command_line": "$USER1$/check_graphite_data -u \"http://localhost:8081/render/?width=588&height=313&_salt=1348651498.895&target=collectd.$HOSTNAME$_vm.memory.memory.used.value\" -w 100000000 -c 400000000"
+}
