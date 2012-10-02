@@ -3,7 +3,6 @@ The `monigusto` project aims to provide the equivalent of `vagrant up` but for m
 
 A single server box that contains the most common/current tools for monitoring like graphite, statsd, collectd, nagios, logstash, jmxtrans, tasseo and gdash . Then it becomes easy for a developer to get used to the management and monitoring and without the hassle of setting it up from scratch or finding out how to make it work together
 
-__Work in progress - not fully configurable yet__
 # Usage:
 
 ## Setup a sample project
