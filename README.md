@@ -43,15 +43,24 @@ This currently assumes the following:
 
 ### Network ports
 
-- nagios: 8080
-- graphite: 8081
-- collectd: 8082
-- kibana: 8083
-- tasseo: 8084
-- tasseo: 8085 (nginx)
-- statsd: 8086
-- jmx: 8087
-- elasticsearch: 8088
+#### Mapped by Vagrant
+
+- nagios: <http://localhost:8080>
+- graphite: <http://localhost:8081>
+- collectd: <http://localhost:8082>
+- kibana: <http://localhost:8083>
+- tasseo: <http://localhost:8084>
+- tasseo: <http://localhost:8085> (nginx)
+- statsd: <http://localhost:8086>
+- jmx: <http://localhost:8087>
+- elasticsearch: <http://localhost:8088>
+
+#### Accessible from your client
+
+- graphite: tcp/2003
+- statsd: udp/8126
+- logstash: tcp/5959
+- elasticsearch: tcp/9200
 
 ## Update monigusto
 
@@ -68,6 +77,89 @@ We will provide a pre-downloadable box file soon, so you can skip this part
     bundle exec vagrant add ubuntu-12.04 ubunty-12.04.box
 
 # Technology used
-We use chef to set it up and have have use the following cookbooks:
 
-TODO - write this up
+## Collectd
+- Collectd :
+  - Homepage: <http://collectd.org/>
+  - Cookbook:
+    - (origin) <https://github.com/coderanger/chef-collectd>
+    - (ours) <https://github.com/monigusto/chef-collectd>
+
+- Collectd-Carbon: (Graphite writer - Python plugin)
+  - Homepage: <http://github.com/indygreg/collectd-carbon>
+  - Cookbook:
+    - (ours) <https://github.com/monigusto/chef-collectd-carbon>
+
+- Collectd-Elasticsearch: (Python plugin)
+  - Homepage: <http://github.com/phobos182/collectd-elasticsearch>
+  - Cookbook:
+    - (ours) <https://github.com/monigusto/chef-collectd-elasticsearch>
+
+## Graphite
+
+- Graphite:
+  - Homepage: <http://graphite.wikidot.com/>
+  - Cookbook:
+    - (origin) <https://github.com/heavywater/chef-graphite>
+    - (ours) <https://github.com/monigusto/chef-graphite>
+
+## Nagios
+
+- Nagios
+  - Homepage: <http://nagios.org>
+  - Cookbook:
+    - (origin) <https://github.com/opscode-cookbooks/nagios>
+    - (ours) <https://github.com/monigusto/chef-nagios>
+
+- Nagios-Check-Graphite
+  - Homepage:
+    - (origin) <https://github.com/etsy/nagios_tools>
+    - (ours) <https://github.com/monigusto/nagios_tools>
+  - Cookbook:
+    - (ours) <https://github.com/monigusto/chef-nagios-check-graphite>
+
+## JMX trans
+
+- JmxTrans:
+  - Homepage: <https://github.com/lookfirst/jmxtrans>
+  - Cookbook:
+    - (origin) <https://github.com/bryanwb/chef-jmxtrans>
+    - (ours) <https://github.com/monigusto/chef-jmxtrans>
+
+## Statsd
+
+- Statsd:
+  - Homepage: <https://github.com/etsy/statsd>
+  - Cookbook:
+    - (origin) <https://github.com/jellybob/kitchen>
+    - (ours) <https://github.com/monigusto/chef-statsd>
+
+## Logstash
+
+- Logstash:
+  - Homepage: <http://logstash.net>
+  - Cookbook:
+    - (origin) <https://github.com/lusis/chef-logstash>
+    - (ours) <https://github.com/monigusto/chef-logstash>
+
+## Tasseo (graphite dashboard)
+
+- Tasseo:
+  - Homepage: <https://github.com/obfuscurity/tasseo>
+  - Cookbook:
+    - (origin) <https://github.com/danryan/chef-tasseo>
+    - (ours) <https://github.com/monigusto/chef-tasseo>
+
+## Chef
+
+- Graphite-Handler (Chef run metrics to Graphite)
+  - Homepage: <https://github.com/imeyer/chef-handler-graphite>
+  - Cookbook:
+    - (origin) <https://github.com/realityforge/chef-graphite_handler>
+    - (ours) <https://github.com/monigusto/chef-graphite_handler>
+
+- Logstash-Handler (Chef run logs to Logstash)
+  - Homepage: <https://github.com/lusis/logstash_handler>
+  - Cookbook:
+    - (origin) <https://github.com/lusis/logstash_handler>
+    - (ours) <https://github.com/monigusto/logstash_handler>
