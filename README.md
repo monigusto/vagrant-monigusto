@@ -61,7 +61,7 @@ This currently assumes the following:
 #### Accessible from your client
 
 - graphite: tcp/2003
-- statsd: udp/8126
+- statsd: udp/8125
 - logstash: tcp/5959
 - elasticsearch: tcp/9200
 
