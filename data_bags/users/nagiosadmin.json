@@ -1,7 +1,7 @@
 {
   "id": "nagiosadmin",
   "groups": "sysadmin",
-  "htpasswd": "nagiosadmin:{SHA}CZaQmrL4KdSW+rx2dJBgaHr3ClI=",
+  "htpasswd": "{SHA}CZaQmrL4KdSW+rx2dJBgaHr3ClI=",
   "openid": "http://nagiosadmin.myopenid.com/",
     "nagios": {
     "pager": "nagiosadmin_pager@example.com",
