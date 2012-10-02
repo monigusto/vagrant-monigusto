@@ -1,15 +1,16 @@
 {
   "name": "monigusto_client",
   "default_attributes": {
+  },
+  "override_attributes": { 
     "collectd": {
       "server_ip": "192.168.33.11"
     }
   },
-  "override_attributes": { },
   "json_class": "Chef::Role",
   "description": "This is a monigusto client role",
   "run_list": [
-    "recipe[nagios::client]", "recipe[collectd::client]"
+    "recipe[monigusto::client]"
   ],
   "chef_type": "role"
 }

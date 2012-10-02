@@ -1,6 +1,8 @@
 {
   "name": "monigusto_server",
   "default_attributes": {
+  },
+  "override_attributes": {
     "pingdom": {
       "username": "pingdomyouraccount",
       "password": "pingdompassword",
@@ -8,9 +10,9 @@
     },
     "postfix": {
       "myhostname": "monitoring",
-      "mydomain": "jedi.be",
+      "mydomain": "example.monigusto",
       "aliases": {
-        "root": "patrick.debois@jedi.be"
+        "root": "me@example.monigusto"
       }
     },
     "logstash": {
@@ -34,8 +36,6 @@
       "elasticsearch_ip": "192.168.33.11",
       "elacsticsearch_cluster": "elasticsearch"
     }
-  },
-  "override_attributes": {
   },
   "json_class": "Chef::Role",
   "description": "This is role for a monigusto server",
