@@ -64,7 +64,7 @@ This currently assumes the following:
 
 ## Update monigusto
 
-    bundle exec rake monigusto:install
+    bundle exec rake monigusto:update
 
 ## Customize a basebox
 ### Use the prebuild image (TODO)
