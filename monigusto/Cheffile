@@ -7,55 +7,55 @@ cookbook 'openssl'
 cookbook 'postfix'
 
 cookbook 'pingdom',
-  :git => 'git@github.com:monigusto/chef-pingdom.git'
+  :git => 'https://github.com/monigusto/chef-pingdom.git'
 
 cookbook 'gdash',
-  :git => 'git@github.com:monigusto/chef-gdash.git'
+  :git => 'https://github.com/monigusto/chef-gdash.git'
 
 cookbook 'graphite_handler',
-  :git => 'git@github.com:monigusto/chef-graphite_handler.git'
+  :git => 'https://github.com/monigusto/chef-graphite_handler.git'
 
 cookbook 'ntp',
   :git => 'git://github.com/opscode-cookbooks/ntp.git'
 
 cookbook 'snmp',
-   :git => 'git@github.com:monigusto/chef-snmp.git'
+   :git => 'https://github.com/monigusto/chef-snmp.git'
 
 cookbook 'logstash',
-   :git => 'git@github.com:monigusto/chef-logstash.git'
+   :git => 'https://github.com/monigusto/chef-logstash.git'
 
 cookbook 'logstash_handler',
-  :git => 'git@github.com:monigusto/logstash_handler.git'
+  :git => 'https://github.com/monigusto/logstash_handler.git'
 
 cookbook 'graphite',
-   :git =>  'git@github.com:monigusto/chef-graphite.git'
+   :git =>  'https://github.com/monigusto/chef-graphite.git'
 
 cookbook 'collectd',
-   :git =>  'git@github.com:monigusto/chef-collectd.git'
+   :git =>  'https://github.com/monigusto/chef-collectd.git'
 
 cookbook 'jmxtrans',
-   :git =>  'git@github.com:monigusto/chef-jmxtrans.git'
+   :git =>  'https://github.com/monigusto/chef-jmxtrans.git'
 
 cookbook 'statsd',
-   :git =>  'git@github.com:monigusto/chef-statsd.git'
+   :git =>  'https://github.com/monigusto/chef-statsd.git'
 
 cookbook 'solo-search',
-   :git =>  'git@github.com:monigusto/chef-solo-search.git'
+   :git =>  'https://github.com/monigusto/chef-solo-search.git'
 
 cookbook 'tasseo',
-   :git => 'git@github.com:monigusto/chef-tasseo.git'
+   :git => 'https://github.com/monigusto/chef-tasseo.git'
 
 cookbook 'nagios',
-   :git =>  'git@github.com:monigusto/chef-nagios.git'
+   :git =>  'https://github.com/monigusto/chef-nagios.git'
 
 cookbook 'collectd-carbon',
-   :git =>  'git@github.com:monigusto/chef-collectd-carbon.git'
+   :git =>  'https://github.com/monigusto/chef-collectd-carbon.git'
 
 cookbook 'collectd-elasticsearch',
-   :git =>  'git@github.com:monigusto/chef-collectd-elasticsearch.git'
+   :git =>  'https://github.com/monigusto/chef-collectd-elasticsearch.git'
 
 cookbook 'nagios-check-graphite',
-   :git =>  'git@github.com:monigusto/chef-nagios-check-graphite.git'
+   :git =>  'https://github.com/monigusto/chef-nagios-check-graphite.git'
 
 cookbook 'monigusto',
-   :git =>  'git@github.com:monigusto/chef-monigusto.git'
+   :git =>  'https://github.com/monigusto/chef-monigusto.git'
