@@ -23,6 +23,10 @@ __Work in progress - not fully configurable yet__
 This will install the cookbooks required for monigusto in monigusto/cookbooks.
 You can use your own cookbooks in `site-cookbooks` or `cookbooks`
 
+## Download the basebox
+
+    bundle exec vagrant box add ubuntu-12.04 https://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-ubuntu-12.04.box
+
 ## Spinup a client and server
     bundle exec vagrant up server
     bundle exec vagrant up client
@@ -67,10 +71,11 @@ This currently assumes the following:
     bundle exec rake monigusto:update
 
 ## Customize a basebox
-### Use the prebuild image (TODO)
-We will provide a pre-downloadable box file soon, so you can skip this part
+### Use the prebuild image
 
-### Build it with veewee
+<https://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-ubuntu-12.04.box>
+
+### Build it with veewee/bentoo
 
     bundle exec vagrant basebox build ubuntu-12.04
     bundle exec vagrant basebox export ubuntu-12.04
