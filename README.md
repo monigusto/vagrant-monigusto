@@ -140,7 +140,7 @@ This currently assumes the following:
 
 ## Logstash
 
-- Logstash:
+- Logstash/Kibana
   - Homepage: <http://logstash.net>
   - Cookbook:
     - (origin) <https://github.com/lusis/chef-logstash>
