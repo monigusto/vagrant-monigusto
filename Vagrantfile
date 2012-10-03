@@ -64,7 +64,7 @@ Vagrant::Config.run do |config|
     # client_config.vm.share_folder "v-data", "/vagrant_data", "../data"
 
     client_config.vm.provision :chef_solo do |chef|
-      chef.cookbooks_path = [ "cookbooks" , "monigusto/cookbooks","site-cookbooks"]
+      chef.cookbooks_path = [ "monigusto/cookbooks","site-cookbooks"]
       chef.roles_path = "roles"
       chef.log_level = :debug
       chef.data_bags_path = "data_bags"
