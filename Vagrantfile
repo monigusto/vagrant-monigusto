@@ -26,8 +26,10 @@ Vagrant::Config.run do |config|
     server_config.vm.forward_port 8084, 8084
     # Tasseo
     server_config.vm.forward_port 5000, 8085
-    # Statsd
-    server_config.vm.forward_port 8125, 8086
+    # Statsd telnet interface (see https://github.com/etsy/statsd)
+    # telnet localhost 8086
+    # use commands 'stats' 'counters' or 'timers'
+    server_config.vm.forward_port 8126, 8086
     # JMX
     server_config.vm.forward_port 1105, 8087
     # ES
