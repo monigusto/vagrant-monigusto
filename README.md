@@ -10,7 +10,7 @@ A single server box that contains the most common/current tools for monitoring l
 
 ## Setup a sample project
 
-    git clone https://github.com/monigusto/monigusto-vagrant.git monigusto
+    git clone https://github.com/monigusto/vagrant-monigusto.git monigusto
     cd monigusto
 
 ## Install necessary gems
