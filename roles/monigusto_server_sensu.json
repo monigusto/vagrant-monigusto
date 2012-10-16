@@ -1,0 +1,53 @@
+{
+  "name": "monigusto_server_sensu",
+  "default_attributes": {
+  },
+  "override_attributes": {
+    "pingdom": {
+      "username": "pingdomyouraccount",
+      "password": "pingdompassword",
+      "api_key": "pingdowapikey"
+    },
+    "postfix": {
+      "myhostname": "monitoring",
+      "mydomain": "example.monigusto",
+      "aliases": {
+        "root": "me@example.monigusto"
+      }
+    },
+    "logstash": {
+      "kibana": {
+        "http_port" : 8083
+      },
+      "agent": {
+        "inputs": {} ,
+        "outputs": {},
+        "server_ipaddress": "192.168.33.11",
+        "ipv4_only": true,
+        "server_role": "monigusto_server"
+      },
+      "server": {
+        "java_opts": "-Dcom.sun.management.jmxremote.port=1105 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false",
+        "ipv4_only": true,
+        "install_rabbitmq": false,
+        "enable_embedded_es": true
+      },
+      "graphite_ip": "127.0.0.1",
+      "elasticsearch_ip": "192.168.33.11",
+      "elacsticsearch_cluster": "elasticsearch"
+    },
+    "sensu":{
+      "dashboard": {
+        "port":8090
+      },
+      "ssl":false
+    }
+  },
+  "json_class": "Chef::Role",
+  "description": "This is role for a monigusto server",
+    "run_list": [
+      "role[monigusto_server]",
+      "recipe[monigusto::server_sensu]"
+    ],
+    "chef_type": "role"
+}
