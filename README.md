@@ -32,7 +32,9 @@ You can use your own cookbooks in `site-cookbooks` or `cookbooks`
 ## Spinup a client and server
     bundle exec vagrant up server
     bundle exec vagrant up client
+
 For Sensu client and server use
+
     bundle exec vagrant up server_sensu
     bundle exec vagrant up client_sensu
 
