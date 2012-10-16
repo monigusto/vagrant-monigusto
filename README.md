@@ -33,6 +33,11 @@ You can use your own cookbooks in `site-cookbooks` or `cookbooks`
     bundle exec vagrant up server
     bundle exec vagrant up client
 
+    For Sensu client and server use
+    bundle exec vagrant up server_sensu
+    bundle exec vagrant up client_sensu
+
+
 ## Customize the configuration
 
 Files that might need customization:
@@ -61,12 +66,19 @@ This currently assumes the following:
 - jmx: <http://localhost:8087>
 - elasticsearch: <http://localhost:8088>
 
+For Sensu:
+- rabbitmq mgmt console: <http://localhost:8089>
+- sensu-dashboard: <http://localhost:8090>
+
 #### Accessible from your client
 
 - graphite: tcp/2003
 - statsd: udp/8125
 - logstash: tcp/5959
 - elasticsearch: tcp/9200
+
+For Sensu
+- rabbitmq: tcp/5672
 
 ## Update monigusto
 
@@ -170,3 +182,26 @@ This currently assumes the following:
   - Cookbook:
     - (origin) <https://github.com/lusis/logstash_handler>
     - (ours) <https://github.com/monigusto/logstash_handler>
+
+## Sensu
+
+- Rabbitmq
+  - Homepage: <http://www.rabbitmq.com/>
+  - Cookbook:
+    - (origin) <https://github.com/opscode-cookbooks/rabbitmq>
+    - (ours) <https://github.com/manul/rabbitmq>
+
+- Redis
+  - Homepage: <http://http://redis.io/>
+  - Cookbook:
+    - (origin) <https://github.com/gchef/redis-cookbook.git>
+
+- Sensu
+  - Homepage: <https://github.com/sensu>
+  - Cookbook: 
+    -origin <https://github.com/sensu/sensu-chef>
+
+- Sensu community plugins
+  - Homepage: <https://github.com/sensu/sensu-community-plugins>
+  - Cookbook:
+    - origin <https://github.com/manul/chef-sensu-community-plugins>
