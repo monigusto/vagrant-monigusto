@@ -32,8 +32,7 @@ You can use your own cookbooks in `site-cookbooks` or `cookbooks`
 ## Spinup a client and server
     bundle exec vagrant up server
     bundle exec vagrant up client
-
-    For Sensu client and server use
+For Sensu client and server use
     bundle exec vagrant up server_sensu
     bundle exec vagrant up client_sensu
 
@@ -185,23 +184,23 @@ For Sensu
 
 ## Sensu
 
-- Rabbitmq
+- Rabbitmq:
   - Homepage: <http://www.rabbitmq.com/>
   - Cookbook:
     - (origin) <https://github.com/opscode-cookbooks/rabbitmq>
     - (ours) <https://github.com/manul/rabbitmq>
 
-- Redis
+- Redis:
   - Homepage: <http://http://redis.io/>
   - Cookbook:
     - (origin) <https://github.com/gchef/redis-cookbook.git>
 
-- Sensu
+- Sensu:
   - Homepage: <https://github.com/sensu>
   - Cookbook: 
-    -origin <https://github.com/sensu/sensu-chef>
+    - (origin) <https://github.com/sensu/sensu-chef>
 
-- Sensu community plugins
+- Sensu community plugins:
   - Homepage: <https://github.com/sensu/sensu-community-plugins>
   - Cookbook:
-    - origin <https://github.com/manul/chef-sensu-community-plugins>
+    - (origin) <https://github.com/manul/chef-sensu-community-plugins>
