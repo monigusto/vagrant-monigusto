@@ -5,6 +5,12 @@
   "override_attributes": { 
     "collectd": {
       "server_ip": "192.168.33.11"
+    },
+    "sensu":{
+      "ssl":false,
+      "rabbitmq": {
+        "host":"192.168.33.11"
+      }
     }
   },
   "json_class": "Chef::Role",

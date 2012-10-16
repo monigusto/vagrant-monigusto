@@ -34,6 +34,10 @@ Vagrant::Config.run do |config|
     server_config.vm.forward_port 1105, 8087
     # ES
     server_config.vm.forward_port 9200, 8088
+    # RabbitMQ
+    server_config.vm.forward_port 55672, 8089
+    # Sensu-dashboard
+    server_config.vm.forward_port 8090, 8090
 
     # We need to increase timeout due to the forward ports default = 10
     server_config.ssh.timeout = 1000
@@ -68,7 +72,7 @@ Vagrant::Config.run do |config|
     client_config.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = [ "cookbooks" , "monigusto/cookbooks","site-cookbooks"]
       chef.roles_path = "roles"
-      chef.log_level = :debug
+#      chef.log_level = :debug
       chef.data_bags_path = "data_bags"
       chef.add_role "monigusto_client"
     end

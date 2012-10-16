@@ -35,6 +35,12 @@
       "graphite_ip": "127.0.0.1",
       "elasticsearch_ip": "192.168.33.11",
       "elacsticsearch_cluster": "elasticsearch"
+    },
+    "sensu":{
+      "dashboard": {
+        "port":8090
+      },
+      "ssl":false
     }
   },
   "json_class": "Chef::Role",

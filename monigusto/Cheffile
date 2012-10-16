@@ -57,5 +57,17 @@ cookbook 'collectd-elasticsearch',
 cookbook 'nagios-check-graphite',
    :git =>  'https://github.com/monigusto/chef-nagios-check-graphite.git'
 
+cookbook 'rabbitmq',
+  :git => 'https://github.com/manul/rabbitmq.git'
+
+cookbook 'sensu-community-plugins',
+  :git => 'https://github.com/manul/chef-sensu-community-plugins.git'
+
+cookbook 'sensu',
+  :git => 'https://github.com/sensu/sensu-chef.git'
+
+cookbook 'redis',
+  :git => 'https://github.com/gchef/redis-cookbook.git'
+
 cookbook 'monigusto',
    :git =>  'https://github.com/monigusto/chef-monigusto.git'
