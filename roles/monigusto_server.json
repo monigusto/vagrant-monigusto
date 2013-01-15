@@ -34,7 +34,7 @@
       },
       "graphite_ip": "127.0.0.1",
       "elasticsearch_ip": "192.168.33.11",
-      "elacsticsearch_cluster": "elasticsearch"
+      "elasticsearch_cluster": "elasticsearch"
     }
   },
   "json_class": "Chef::Role",
