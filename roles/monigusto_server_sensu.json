@@ -1,5 +1,5 @@
 {
-  "name": "monigusto_server",
+  "name": "monigusto_server_sensu",
   "default_attributes": {
   },
   "override_attributes": {
@@ -34,13 +34,20 @@
       },
       "graphite_ip": "127.0.0.1",
       "elasticsearch_ip": "192.168.33.11",
-      "elasticsearch_cluster": "elasticsearch"
+      "elacsticsearch_cluster": "elasticsearch"
+    },
+    "sensu":{
+      "dashboard": {
+        "port":8090
+      },
+      "ssl":false
     }
   },
   "json_class": "Chef::Role",
   "description": "This is role for a monigusto server",
     "run_list": [
-      "recipe[monigusto::server]"
+      "role[monigusto_server]",
+      "recipe[monigusto::server_sensu]"
     ],
     "chef_type": "role"
 }

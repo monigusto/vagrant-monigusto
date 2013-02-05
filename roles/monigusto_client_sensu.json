@@ -1,0 +1,20 @@
+{
+  "name": "monigusto_client_sensu",
+  "default_attributes": {
+  },
+  "override_attributes": { 
+    "sensu":{
+      "ssl":false,
+      "rabbitmq": {
+        "host":"192.168.33.11"
+      }
+    }
+  },
+  "json_class": "Chef::Role",
+  "description": "This is a monigusto client role",
+  "run_list": [
+    "role[monigusto_client]",
+    "recipe[monigusto::client_sensu]"
+  ],
+  "chef_type": "role"
+}
