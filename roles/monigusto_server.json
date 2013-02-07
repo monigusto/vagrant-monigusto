@@ -68,7 +68,7 @@
   "json_class": "Chef::Role",
   "description": "This is role for a monigusto server",
     "run_list": [
-      "recipe[monigusto::server]",
+      "recipe[monigusto::server]"
     ],
     "chef_type": "role"
 }
