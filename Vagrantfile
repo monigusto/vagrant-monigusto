@@ -35,6 +35,13 @@ Vagrant::Config.run do |config|
     # ES
     server_config.vm.forward_port 9200, 8088
 
+    # RabbitMQ
+    server_config.vm.forward_port 55672, 8089
+    # Sensu-dashboard
+    server_config.vm.forward_port 8090, 8090
+    # Sensu-api
+    server_config.vm.forward_port 8091, 8091
+
     # We need to increase timeout due to the forward ports default = 10
     server_config.ssh.timeout = 1000
     server_config.ssh.max_tries = 3000
