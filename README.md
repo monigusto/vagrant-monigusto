@@ -60,6 +60,9 @@ This currently assumes the following:
 - statsd: <http://localhost:8086>
 - jmx: <http://localhost:8087>
 - elasticsearch: <http://localhost:8088>
+- sensu-amqp: <http://localhost:8089>
+- sensu-dashboard: <http://localhost:8090>
+- sensu-api: <http://localhost:8091>
 
 #### Accessible from your client
 
@@ -156,6 +159,20 @@ This currently assumes the following:
   - Cookbook:
     - (origin) <https://github.com/danryan/chef-tasseo>
     - (ours) <https://github.com/monigusto/chef-tasseo>
+
+## Sensu
+
+- Sensu:
+  - Homepage: <https://github.com/sensu/sensu>
+  - Cookbook:
+    - (origin) <https://github.com/sensu/sensu-chef>
+    - (ours) <https://github.com/monigusto/chef-sensu>
+
+- Sensu-community-plugins:
+  - Homepage: <https://github.com/sensu/sensu-community-plugins.git>
+  - Cookbook:
+    - (origin) <https://github.com/manul/chef-sensu-community-plugins>
+    - (ours) <https://github.com/monigusto/chef-sensu-community-plugins>
 
 ## Chef
 
