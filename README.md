@@ -144,6 +144,9 @@ This currently assumes the following:
     - (origin) <https://github.com/jellybob/kitchen>
     - (ours) <https://github.com/monigusto/chef-statsd>
 
+- Librato-backend:
+  - Homepage: <https://github.com/librato/statsd-librato-backend>
+
 ## Logstash
 
 - Logstash/Kibana
