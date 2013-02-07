@@ -39,6 +39,10 @@ cookbook 'jmxtrans',
 cookbook 'statsd',
    :git =>  'https://github.com/monigusto/chef-statsd.git'
 
+# Cookbook from main community site is outdated
+cookbook 'npm',
+   :git =>  'https://github.com/monigusto/chef-npm.git'
+
 cookbook 'solo-search',
    :git =>  'https://github.com/monigusto/chef-solo-search.git'
 
@@ -59,3 +63,18 @@ cookbook 'nagios-check-graphite',
 
 cookbook 'monigusto',
    :git =>  'https://github.com/monigusto/chef-monigusto.git'
+
+# Needed for sensu , another one breaks
+cookbook 'redis',
+  :git => 'https://github.com/miah/chef-redis'
+
+# Seems graphite chef-handler doesn't like the default runit
+# Complains about finish_script
+cookbook 'runit',
+  :git => 'https://github.com/cookbooks/runit'
+
+cookbook 'sensu-community-plugins',
+  :git => 'https://github.com/monigusto/chef-sensu-community-plugins.git'
+
+cookbook 'sensu',
+  :git => 'https://github.com/monigusto/chef-sensu.git'
