@@ -46,6 +46,8 @@ Vagrant::Config.run do |config|
     server_config.ssh.timeout = 1000
     server_config.ssh.max_tries = 3000
 
+    server_config.vm.provision :shell, :path => "definitions/ubuntu-12.04/chef-client.sh"
+
     # server_config.vm.share_folder "v-data", "/vagrant_data", "../data"
 
     server_config.vm.provision :chef_solo do |chef|
@@ -71,6 +73,7 @@ Vagrant::Config.run do |config|
     # client_config.vm.forward_port 80, 8080
 
     # client_config.vm.share_folder "v-data", "/vagrant_data", "../data"
+    client_config.vm.provision :shell, :path => "definitions/ubuntu-12.04/chef-client.sh"
 
     client_config.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = [ "cookbooks" , "monigusto/cookbooks","site-cookbooks"]
